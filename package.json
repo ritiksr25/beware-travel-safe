@@ -4,7 +4,8 @@
   "description": "A common platform for all the stores and restaurants where users can view the products/items by scanning their QR Code and book order as well. It will reduce the waiting time and crowding at the stores, instead of customer and seller, both can carry out the process of purchase smoothly. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
