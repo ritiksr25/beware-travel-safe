@@ -30,6 +30,7 @@ const User = require("./models/User");
 app.use("/api/v1", require("./routes/api/v1/index"));
 
 app.use("*", notFound);
+
 //Error Handlers
 app.use(sendErrors);
 
