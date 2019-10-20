@@ -8,7 +8,7 @@ module.exports.catchErrors = middlewareFunction => {
 
 // not found routes
 module.exports.notFound = (req, res) => {
-	res.status(404).json({ message: "Welcome to BEWARE-TRAVEL-SAFE API !!" });
+	res.status(404).json({ message: "Welcome to BEWARE-TRAVEL-SAFE API!!" });
 };
 
 module.exports.sendErrors = (err, req, res, next) => {
