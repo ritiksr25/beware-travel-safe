@@ -1,4 +1,4 @@
-# beware_travel_safe
+# beware-travel-safe
 
 A new Flutter project.
 
