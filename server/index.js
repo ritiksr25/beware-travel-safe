@@ -25,10 +25,12 @@ app.use(
 
 //load Schemas
 const User = require("./models/User");
+const Location = require("./models/Location");
 
 //Routes
 app.use("/api/v1", require("./routes/api/v1/index"));
 app.use("/api/v1/users", require("./routes/api/v1/users"));
+app.use("/api/v1/data", require("./routes/api/v1/data"));
 
 app.use("*", notFound);
 

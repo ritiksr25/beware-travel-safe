@@ -4,9 +4,9 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const UserSchema = new mongoose.Schema({
-	googleId: {
-		type: String
-	},
+	// googleId: {
+	// 	type: String
+	// },
 	name: {
 		type: String,
 		required: true
@@ -22,9 +22,9 @@ const UserSchema = new mongoose.Schema({
 		type: Boolean,
 		default: false
 	},
-	isGoogleSignIn: {
-		type: Boolean
-	}
+	// isGoogleSignIn: {
+	// 	type: Boolean
+	// }
 }, { timestamps: true });
 
 UserSchema.methods.generateAuthToken = function() {
