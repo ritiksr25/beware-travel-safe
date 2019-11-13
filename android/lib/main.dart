@@ -1,3 +1,4 @@
+import 'package:beware_travel_safe/routes/intro_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -39,12 +40,26 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Beware Travel Safe'),
-          backgroundColor: Colors.green[700],
-        ),
-        body: _child,
+      title: "Travel Safe",
+      theme: ThemeData(
+        textTheme:ThemeData.dark().textTheme.copyWith(
+          headline:TextStyle(
+            fontSize: 36,
+            fontFamily: 'Product Sans',
+            color: const Color(0xFF676767),
+            fontWeight: FontWeight.w600,
+          ),
+          title: TextStyle(),
+          body1: TextStyle(),
+        )
+      ),
+      home:IntroScreen(),
+//      Scaffold(
+//        appBar: AppBar(
+//          title: Text('Beware Travel Safe'),
+//          backgroundColor: Colors.green[700],
+//        ),
+//        body: _child,
         // GoogleMap(
         //   mapType: MapType.normal,
         //   onMapCreated: _onMapCreated,
@@ -53,7 +68,7 @@ class _MyAppState extends State<MyApp> {
         //     zoom: 11.0,
         //   ),
         // ),
-      ),
+//      ),
     );
   }
 
