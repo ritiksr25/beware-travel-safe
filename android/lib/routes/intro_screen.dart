@@ -1,3 +1,4 @@
+import 'package:beware_travel_safe/routes/auth_screen.dart';
 import 'package:flutter/material.dart';
 
 class IntroScreen extends StatefulWidget {
@@ -30,7 +31,7 @@ class _IntroScreenState extends State<IntroScreen> {
                   style: Theme.of(context).textTheme.headline,
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 36.0,left: 24.0,right: 24.0),
+                  padding: EdgeInsets.only(top: 36.0, left: 24.0, right: 24.0),
                   child: SizedBox(
                     width: double.infinity,
                     child: RaisedButton(
@@ -48,7 +49,12 @@ class _IntroScreenState extends State<IntroScreen> {
                       color: const Color(0xFF7B65E4),
                       shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(8.0)),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AuthScreen()));
+                      },
                     ),
                   ),
                 )
