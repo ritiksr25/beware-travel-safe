@@ -4,6 +4,9 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const UserSchema = new mongoose.Schema({
+	// googleId: {
+	// 	type: String
+	// },
 	name: {
 		type: String,
 		required: true
@@ -13,13 +16,15 @@ const UserSchema = new mongoose.Schema({
 		required: true
 	},
 	password: {
-		type: String,
-		required: true
+		type: String
 	},
 	isAdmin: {
 		type: Boolean,
 		default: false
-	}
+	},
+	// isGoogleSignIn: {
+	// 	type: Boolean
+	// }
 }, { timestamps: true });
 
 UserSchema.methods.generateAuthToken = function() {
