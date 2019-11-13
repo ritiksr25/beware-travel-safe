@@ -28,6 +28,7 @@ const User = require("./models/User");
 
 //Routes
 app.use("/api/v1", require("./routes/api/v1/index"));
+app.use("/api/v1/users", require("./routes/api/v1/users"));
 
 app.use("*", notFound);
 
