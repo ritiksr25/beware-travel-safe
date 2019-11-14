@@ -33,6 +33,7 @@ flutter:
     - assets/images/introimage.png
     - assets/images/introbg.png
     - assets/images/authimage.png
+    - assets/images/searchimage.png
 
   uses-material-design: true
 
