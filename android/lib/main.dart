@@ -1,5 +1,6 @@
 import 'package:beware_travel_safe/routes/intro_screen.dart';
 import 'package:beware_travel_safe/routes/profile_screen.dart';
+import 'package:beware_travel_safe/routes/register_screen.dart';
 import 'package:beware_travel_safe/routes/search_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -60,7 +61,7 @@ class _MyAppState extends State<MyApp> {
           body1: TextStyle(),
         )
       ),
-      home:ProfileScreen(),
+      home:RegisterScreen(),
 //      Scaffold(
 //        appBar: AppBar(
 //          title: Text('Beware Travel Safe'),
