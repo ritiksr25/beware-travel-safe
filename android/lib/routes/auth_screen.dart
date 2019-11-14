@@ -70,6 +70,7 @@ class _AuthScreenState extends State<AuthScreen> {
               Container(
                 padding: EdgeInsets.only(top: 36.0, left: 24.0, right: 24.0),
                 child: SizedBox(
+                  
                   width: double.infinity,
                   child: RaisedButton(
                     padding: EdgeInsets.symmetric(vertical: 8, horizontal: 48),
