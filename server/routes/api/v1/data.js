@@ -12,11 +12,12 @@ const {
 // middlewares
 const { catchErrors } = require("../../../config/errorHandler");
 const { allAuth, adminAuth } = require("../../../middlewares/auth");
+const { dataValidation } = require("../../../middlewares/validations");
 
 // routes
 router.get("/", allAuth, catchErrors(getData));
-router.post("/", adminAuth, catchErrors(addData));
-router.put("/:id", adminAuth, catchErrors(updateData));
+router.post("/", adminAuth, dataValidation, catchErrors(addData));
+router.put("/:id", adminAuth, dataValidation, catchErrors(updateData));
 router.delete("/:id", adminAuth, catchErrors(deleteData));
 
 // export router

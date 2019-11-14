@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs');
+
 module.exports.register = async (req, res) => {
     let { name, email, password, googleId } = req.body;
     let user = await User.findOne({ email });
