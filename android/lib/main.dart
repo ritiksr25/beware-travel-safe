@@ -1,4 +1,6 @@
 import 'package:beware_travel_safe/routes/intro_screen.dart';
+import 'package:beware_travel_safe/routes/profile_screen.dart';
+import 'package:beware_travel_safe/routes/register_screen.dart';
 import 'package:beware_travel_safe/routes/search_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -50,11 +52,16 @@ class _MyAppState extends State<MyApp> {
             color: const Color(0xFF676767),
             fontWeight: FontWeight.w600,
           ),
-          title: TextStyle(),
+          title: TextStyle(
+            fontSize: 32,
+            fontFamily: 'Product Sans',
+            color: const Color(0xFF7B65E4),
+            fontWeight: FontWeight.w600,
+          ),
           body1: TextStyle(),
         )
       ),
-      home:SearchScreen(),
+      home:RegisterScreen(),
 //      Scaffold(
 //        appBar: AppBar(
 //          title: Text('Beware Travel Safe'),
