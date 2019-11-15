@@ -62,6 +62,7 @@ class _MyAppState extends State<MyApp> {
         )
       ),
       home:IntroScreen(),
+android
 //      Scaffold(
 //        appBar: AppBar(
 //          title: Text('Beware Travel Safe'),

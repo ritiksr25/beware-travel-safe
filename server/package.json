@@ -1,0 +1,31 @@
+{
+  "name": "beware-travel-safe",
+  "version": "1.0.0",
+  "description": "An application that uses route-wise and time-wise previous data records of crime rates and pollution levels along with living pollution rates and suggest the most favourable and optimum route so that our users can travel safely",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ritiksr25/beware-travel-safe.git"
+  },
+  "author": "DSC-KIET",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ritiksr25/beware-travel-safe/issues"
+  },
+  "homepage": "https://github.com/ritiksr25/beware-travel-safe#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.3",
+    "nodemon": "^1.19.3",
+    "path": "^0.12.7"
+  }
+}
