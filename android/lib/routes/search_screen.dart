@@ -84,7 +84,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       style: TextStyle(
                         fontSize: 24.0,
                         fontFamily: 'Product Sans',
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                     ),

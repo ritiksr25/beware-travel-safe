@@ -45,36 +45,38 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: "Travel Safe",
       theme: ThemeData(
-          textTheme: ThemeData.dark().textTheme.copyWith(
-                headline: TextStyle(
-                  fontSize: 36,
-                  fontFamily: 'Product Sans',
-                  color: const Color(0xFF676767),
-                  fontWeight: FontWeight.w600,
-                ),
-                title: TextStyle(
-                  fontSize: 32,
-                  fontFamily: 'Product Sans',
-                  color: const Color(0xFF7B65E4),
-                  fontWeight: FontWeight.w600,
-                ),
-                body1: TextStyle(),
-              )),
-      home: IntroScreen(),
+        textTheme:ThemeData.dark().textTheme.copyWith(
+          headline:TextStyle(
+            fontSize: 36,
+            fontFamily: 'Product Sans',
+            color: const Color(0xFF676767),
+            fontWeight: FontWeight.w600,
+          ),
+          title: TextStyle(
+            fontSize: 32,
+            fontFamily: 'Product Sans',
+            color: const Color(0xFF7B65E4),
+            fontWeight: FontWeight.w600,
+          ),
+          body1: TextStyle(),
+        )
+      ),
+      home:IntroScreen(),
+android
 //      Scaffold(
 //        appBar: AppBar(
 //          title: Text('Beware Travel Safe'),
 //          backgroundColor: Colors.green[700],
 //        ),
 //        body: _child,
-      // GoogleMap(
-      //   mapType: MapType.normal,
-      //   onMapCreated: _onMapCreated,
-      //   initialCameraPosition: CameraPosition(
-      //     target: _center,
-      //     zoom: 11.0,
-      //   ),
-      // ),
+        // GoogleMap(
+        //   mapType: MapType.normal,
+        //   onMapCreated: _onMapCreated,
+        //   initialCameraPosition: CameraPosition(
+        //     target: _center,
+        //     zoom: 11.0,
+        //   ),
+        // ),
 //      ),
     );
   }
