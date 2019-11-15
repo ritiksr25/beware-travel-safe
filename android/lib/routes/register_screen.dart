@@ -26,6 +26,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Container(
                 padding: EdgeInsets.only(top: 20.0),
                 child: TextFormField(
+                  style: TextStyle(
+                      color: Colors.black
+                  ),
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide:
@@ -48,6 +51,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Container(
                 padding: EdgeInsets.only(top: 20.0),
                 child: TextFormField(
+                  style: TextStyle(
+                      color: Colors.black
+                  ),
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide:
@@ -70,6 +76,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Container(
                 padding: EdgeInsets.only(top: 20.0),
                 child: TextFormField(
+                  style: TextStyle(
+                      color: Colors.black
+                  ),
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide:
@@ -92,6 +101,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Container(
                 padding: EdgeInsets.only(top: 20.0),
                 child: TextFormField(
+                  style: TextStyle(
+                      color: Colors.black
+                  ),
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide:
