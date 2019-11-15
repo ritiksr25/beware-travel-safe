@@ -1,0 +1,13 @@
+@font-face {
+  font-family: Product Sans Regular;
+  src: url("/assets/fonts/Product\ Sans\ Regular.ttf");
+}
+
+body {
+  overflow-x: hidden !important;
+  font-family: "Product Sans Regular", sans-serif;
+}
+
+.navbar {
+  box-shadow: 0px 6px 6px #00000029;
+}
