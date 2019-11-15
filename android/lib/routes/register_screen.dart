@@ -11,13 +11,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 40.0),
+          padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
                 "Register",
-                style: Theme.of(context).textTheme.title,
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontFamily: 'Product Sans',
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
               ),
               Image(
                 width: 200.0,
@@ -29,7 +34,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                      BorderSide(color: const Color(0xFF7B65E4), width: 1),
+                          BorderSide(color: const Color(0xFF7B65E4), width: 1),
                     ),
                     filled: true,
                     fillColor: Colors.white,
@@ -51,7 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                      BorderSide(color: const Color(0xFF7B65E4), width: 1),
+                          BorderSide(color: const Color(0xFF7B65E4), width: 1),
                     ),
                     filled: true,
                     fillColor: Colors.white,
@@ -73,7 +78,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                      BorderSide(color: const Color(0xFF7B65E4), width: 1),
+                          BorderSide(color: const Color(0xFF7B65E4), width: 1),
                     ),
                     filled: true,
                     fillColor: Colors.white,
@@ -95,7 +100,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                      BorderSide(color: const Color(0xFF7B65E4), width: 1),
+                          BorderSide(color: const Color(0xFF7B65E4), width: 1),
                     ),
                     filled: true,
                     fillColor: Colors.white,
@@ -133,7 +138,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
               )
-
             ],
           ),
         ),
