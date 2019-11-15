@@ -31,6 +31,9 @@ class _AuthScreenState extends State<AuthScreen> {
                     padding:
                         EdgeInsets.only(top: 20.0, left: 24.0, right: 24.0),
                     child: TextFormField(
+                      style: TextStyle(
+                          color: Colors.black
+                      ),
                       decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -54,6 +57,9 @@ class _AuthScreenState extends State<AuthScreen> {
                     padding:
                         EdgeInsets.only(top: 20.0, left: 24.0, right: 24.0),
                     child: TextFormField(
+                      style: TextStyle(
+                        color: Colors.black
+                      ),
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
