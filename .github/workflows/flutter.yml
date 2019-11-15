@@ -19,6 +19,4 @@ jobs:
       - working-directory: ./android
         run: flutter pub get
       - working-directory: ./android
-        run: flutter test
-      - working-directory: ./android
         run: flutter build apk
