@@ -1,3 +1,4 @@
+import 'package:beware_travel_safe/routes/register_screen.dart';
 import 'package:flutter/material.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -27,12 +28,13 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(top: 20.0, left: 24.0, right: 24.0),
+                    padding:
+                        EdgeInsets.only(top: 20.0, left: 24.0, right: 24.0),
                     child: TextFormField(
                       decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: const Color(0xFF7B65E4), width: 1),
+                          borderSide: BorderSide(
+                              color: const Color(0xFF7B65E4), width: 1),
                         ),
                         filled: true,
                         fillColor: Colors.white,
@@ -49,14 +51,15 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(top: 20.0, left: 24.0, right: 24.0),
+                    padding:
+                        EdgeInsets.only(top: 20.0, left: 24.0, right: 24.0),
                     child: TextFormField(
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: const Color(0xFF7B65E4), width: 1),
+                          borderSide: BorderSide(
+                              color: const Color(0xFF7B65E4), width: 1),
                         ),
                         border: const OutlineInputBorder(
                           borderSide: const BorderSide(
@@ -71,11 +74,13 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(top: 36.0, left: 24.0, right: 24.0),
+                    padding:
+                        EdgeInsets.only(top: 36.0, left: 24.0, right: 24.0),
                     child: SizedBox(
                       width: double.infinity,
                       child: RaisedButton(
-                        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 48),
+                        padding:
+                            EdgeInsets.symmetric(vertical: 8, horizontal: 48),
                         child: Text(
                           "Log in",
                           style: TextStyle(
@@ -90,6 +95,39 @@ class _AuthScreenState extends State<AuthScreen> {
                             borderRadius: new BorderRadius.circular(8.0)),
                         onPressed: () {},
                       ),
+                    ),
+                  ),
+                  Container(
+                    padding:
+                        EdgeInsets.only(top: 40.0, left: 24.0, right: 24.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          "Don't have an account ? ",
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontFamily: 'Product Sans',
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => RegisterScreen()));
+                          },
+                          child: Text(
+                            "Register",
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontFamily: 'Product Sans',
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF7B65E4),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   )
                 ],
