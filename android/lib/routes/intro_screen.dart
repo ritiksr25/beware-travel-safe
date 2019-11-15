@@ -42,7 +42,7 @@ class _IntroScreenState extends State<IntroScreen> {
                         style: TextStyle(
                           fontSize: 24.0,
                           fontFamily: 'Product Sans',
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                           color: Colors.white,
                         ),
                       ),
