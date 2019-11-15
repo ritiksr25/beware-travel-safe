@@ -61,7 +61,9 @@ class _MyAppState extends State<MyApp> {
           body1: TextStyle(),
         )
       ),
-      home:RegisterScreen(),
+
+      home:IntroScreen(),
+
 //      Scaffold(
 //        appBar: AppBar(
 //          title: Text('Beware Travel Safe'),
