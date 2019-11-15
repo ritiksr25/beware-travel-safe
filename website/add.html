@@ -51,74 +51,56 @@
               style="width: 100%;"
             >
               <li class="nav-item">
-                <a class="nav-link " href="#">About Us</a>
+                <a class="nav-link " href="#">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="#">Log Out</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
       <div class="main">
-        <div class="container">
-          <div class="row pt-4">
-            <div class="col-lg-6 quote-pos">
-              <img
-                class="img-fluid"
-                src="./assets/images/undraw_destinations_fpv7.svg"
-                alt="img"
-              />
-              <p class="quote">Choose Us <br />Travel Safe</p>
+        <div class="container pt-5">
+          <div class="col-lg-8 mx-auto" style="padding-bottom: 200px;">
+            <div class="pt-5">
+              <p class="heading" style="font-size: 32px;">Enter Data</p>
             </div>
-            <div class="col-lg-6">
-              <div class="card card-edit">
-                <div class="text-center mt-3">
-                  <p class="heading"><span class="underline">Log In</span></p>
-                  <img
-                    class="img-fluid m-2"
-                    src="./assets/images/undraw_authentication_fsn5.svg"
-                    alt="login-img"
-                  />
+            <div class="card p-4">
+              <form>
+                <label class="label">Co-Ordinates : </label>
+
+                <div class="form-group row mt-2">
+                  <label class="col-sm-2 col-form-label">X-Axis :</label>
+                  <div class="col-sm-3">
+                    <input type="email" class="form-control" placeholder="X" />
+                  </div>
+                  <label class="col-sm-2 col-form-label">Y-Axis :</label>
+                  <div class="col-sm-3">
+                    <input type="email" class="form-control" placeholder="Y" />
+                  </div>
                 </div>
-                <div class="form-group mx-4 mt-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    aria-describedby="emailHelp"
-                    placeholder="Email"
-                  />
+                <div class="row mt-4">
+                  <label class="col-sm-2 label">Type : </label>
+                  <div class="col-sm-6 form-group ">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option selected disabled>Select</option>
+                      <option>Crime</option>
+                      <option>Accident</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="form-group mx-4">
-                  <input
-                    type="password"
-                    class="form-control"
-                    placeholder="Password"
-                  />
+                <div class="text-right">
+                  <button type="button" class="btn btn-primary">
+                    Submit
+                  </button>
                 </div>
-                <button type="button" class="btn btn-primary mx-4 mb-4">
-                  Log In
-                </button>
-              </div>
+              </form>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="about mt-4 mb-4">
-        <div class="container">
-          <div class="text-center">
-            <p class="heading"><span class="underline">About</span></p>
-            <p
-              class="m-3"
-              style="font-weight: 300; color: #707070; font-size: 22px;"
-            >
-              A mobile-based platform that uses route-wise and time-wise
-              previous data records of crime rates and vulnerability to
-              accidents and suggest the most favorable and optimum route so that
-              our users can travel safely.
-            </p>
           </div>
         </div>
       </div>
     </div>
-
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

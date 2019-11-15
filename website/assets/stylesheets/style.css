@@ -52,3 +52,18 @@ body {
 .btn:hover {
   background-color: #7b65e4;
 }
+
+.label {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .card-edit {
+    margin: 60px;
+  }
+
+  .quote-pos {
+    margin-top: 130px;
+  }
+}
