@@ -34,7 +34,21 @@ body {
   font-size: 24px;
   font-weight: 700;
 }
+
+.underline {
+  border-bottom: 2px solid #7b65e4;
+  display: inline-block;
+}
 .card {
   box-shadow: 6px 6px 8px #00000029;
   border-radius: 8px;
+}
+
+.btn {
+  background-color: #7b65e4;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #7b65e4;
 }
