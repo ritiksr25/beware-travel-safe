@@ -10,27 +10,21 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Image(
-            image: AssetImage("assets/images/introbg.png"),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40.0),
-                child: Image(
-                  image: AssetImage("assets/images/authimage.png"),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 20.0, left: 24.0, right: 24.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: const Color(0xFF7B65E4), width: 1),
+      body: SingleChildScrollView(
+        child: Stack(
+          children: <Widget>[
+            Image(
+              image: AssetImage("assets/images/introbg.png"),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 68.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 40.0),
+                    child: Image(
+                      image: AssetImage("assets/images/authimage.png"),
                     ),
                   ),
                   Container(

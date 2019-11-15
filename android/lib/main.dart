@@ -1,4 +1,6 @@
 import 'package:beware_travel_safe/routes/intro_screen.dart';
+import 'package:beware_travel_safe/routes/profile_screen.dart';
+import 'package:beware_travel_safe/routes/register_screen.dart';
 import 'package:beware_travel_safe/routes/search_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -43,20 +45,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: "Travel Safe",
       theme: ThemeData(
-<<<<<<< HEAD
-        textTheme:ThemeData.dark().textTheme.copyWith(
-          headline:TextStyle(
-            fontSize: 36,
-            fontFamily: 'Product Sans',
-            color: const Color(0xFF676767),
-            fontWeight: FontWeight.w600,
-          ),
-          title: TextStyle(),
-          body1: TextStyle(),
-        )
-      ),
-      home:SearchScreen(),
-=======
           textTheme: ThemeData.dark().textTheme.copyWith(
                 headline: TextStyle(
                   fontSize: 36,
@@ -73,7 +61,6 @@ class _MyAppState extends State<MyApp> {
                 body1: TextStyle(),
               )),
       home: IntroScreen(),
->>>>>>> android
 //      Scaffold(
 //        appBar: AppBar(
 //          title: Text('Beware Travel Safe'),

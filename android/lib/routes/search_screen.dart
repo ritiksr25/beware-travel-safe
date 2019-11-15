@@ -9,9 +9,6 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
-
-=======
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 40.0, horizontal: 24.0),
@@ -108,7 +105,6 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
       ),
->>>>>>> android
     );
   }
 }
