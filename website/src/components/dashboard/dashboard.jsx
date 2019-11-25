@@ -1,7 +1,13 @@
 import React, { Component } from "react";
-
+import axios from "axios";
+import * as ROUTES from "../../utils/routes";
 class Dashboard extends Component {
   state = {};
+
+  async componentDidMount() {
+    const response = await axios.get(ROUTES.crimeData);
+    console.log(response);
+  }
   render() {
     return (
       <React.Fragment>
@@ -15,7 +21,6 @@ class Dashboard extends Component {
                   color: "#7B65E4",
                   fontSize: "22px"
                 }}
-                href="#"
               >
                 Travel Safe
               </a>
@@ -40,14 +45,10 @@ class Dashboard extends Component {
                   style={{ width: "100%" }}
                 >
                   <li className="nav-item">
-                    <a className="nav-link " href="#">
-                      Add Data
-                    </a>
+                    <a className="nav-link ">Add Data</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link " href="#">
-                      Log Out
-                    </a>
+                    <a className="nav-link ">Log Out</a>
                   </li>
                 </ul>
               </div>
@@ -65,7 +66,7 @@ class Dashboard extends Component {
                   </p>
                 </div>
                 <div className="card p-4">
-                  <table class="table table-striped">
+                  <table className="table table-striped">
                     <thead>
                       <tr>
                         <th scope="col">S.No.</th>

@@ -11,7 +11,7 @@ function App() {
       <Route path="/home" component={Home} />
       <Route path="/add" component={AddForm} />
       <Route path="/dashboard" component={Dashboard} />
-      <Redirect from="/" exact to="/home" />
+      <Redirect exact from="/" to="/home" />
     </Switch>
   );
 }
