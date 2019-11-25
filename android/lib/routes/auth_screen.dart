@@ -1,3 +1,4 @@
+import 'package:beware_travel_safe/routes/home_screen.dart';
 import 'package:beware_travel_safe/routes/register_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -99,7 +100,11 @@ class _AuthScreenState extends State<AuthScreen> {
                         color: const Color(0xFF7B65E4),
                         shape: RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(8.0)),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));},
                       ),
                     ),
                   ),
