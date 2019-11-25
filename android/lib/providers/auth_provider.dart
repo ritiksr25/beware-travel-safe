@@ -3,8 +3,10 @@ import 'dart:async';
 
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Auth with ChangeNotifier {
+  DateTime _expiryDate;
   String _token;
   String _id;
   String _userRole;
@@ -78,5 +80,44 @@ class Auth with ChangeNotifier {
       throw error;
     }
     notifyListeners();
+  }
+
+  Future<void> login(String email, String password) async {
+    final url = 'https://bewaretravelsafe.herokuapp.com/api/v1/users/login';
+    try {
+      Map<String, dynamic> body = {
+        'email': email,
+        'password': password,
+      };
+
+      final response = await http.post(
+        url,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: body,
+      );
+      final responseData = json.decode(response.body);
+      final responseHeaders = response.headers;
+      _loginMessage = responseData['message'];
+
+      print(json.decode(response.body));
+
+      _token = responseHeaders['x-auth-token'];
+
+      final token = await SharedPreferences.getInstance();
+      token.setString('userToken', _token);
+
+      _expiryDate = DateTime.now().add(
+        Duration(
+          seconds: 300,
+        ),
+      );
+
+      // _autoLogout();
+      notifyListeners();
+    } catch (error) {
+      print(error);
+    }
   }
 }

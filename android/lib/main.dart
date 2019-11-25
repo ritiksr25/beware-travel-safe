@@ -1,4 +1,4 @@
-import 'package:beware_travel_safe/providers/auth.dart';
+import 'package:beware_travel_safe/providers/auth_provider.dart';
 import 'package:beware_travel_safe/routes/intro_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -51,6 +51,7 @@ class _MyAppState extends State<MyApp> {
         builder: (ctx, auth, _) => MaterialApp(
           title: "Travel Safe",
           theme: ThemeData(
+              primaryColor: Color(0xFF7B65E4),
               textTheme: ThemeData.dark().textTheme.copyWith(
                     headline: TextStyle(
                       fontSize: 36,
