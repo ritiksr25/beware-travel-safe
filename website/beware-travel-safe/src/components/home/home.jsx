@@ -88,7 +88,7 @@ class Home extends Component {
                         placeholder="Password"
                       />
                     </div>
-                    <button type="button" className="btn btn-primary mx-4 mb-4">
+                    <button className="btn btn-primary mx-4 mb-4" type="button">
                       Log In
                     </button>
                   </div>
