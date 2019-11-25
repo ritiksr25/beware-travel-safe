@@ -1,0 +1,64 @@
+body {
+  overflow-x: hidden !important;
+  font-family: "Product Sans Regular", sans-serif;
+}
+
+.navbar {
+  box-shadow: 0px 6px 6px #00000029;
+}
+
+.nav-item {
+  font-weight: 700;
+}
+
+.main {
+  background-image: url("./Path.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.underline {
+  border-bottom: 2px solid #7b65e4;
+  display: inline-block;
+}
+.card {
+  box-shadow: 6px 6px 8px #00000029;
+  border-radius: 8px;
+}
+
+.btn {
+  background-color: #7b65e4 !important;
+  border: none !important;
+}
+
+.btnn:hover {
+  background-color: #7b65e4 !important;
+}
+
+.label {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .card-edit {
+    margin: 60px;
+  }
+
+  .quote-pos {
+    margin-top: 130px;
+  }
+}
