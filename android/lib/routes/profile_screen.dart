@@ -1,5 +1,6 @@
 import 'package:beware_travel_safe/models/view_profile_model.dart';
 import 'package:beware_travel_safe/providers/auth_provider.dart';
+import 'package:beware_travel_safe/routes/auth_screen.dart';
 import 'package:beware_travel_safe/routes/home_screen.dart';
 import 'package:beware_travel_safe/routes/search_screen.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +41,43 @@ class _ProfileScreenState extends State<ProfileScreen> {
     _isInit = false;
 
     super.didChangeDependencies();
+  }
+
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text('Alert!'),
+        content: Text(
+          message,
+          style: TextStyle(
+            fontSize: 18,
+            fontFamily: 'Product Sans',
+            color: const Color(0xFF676767),
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('No'),
+            onPressed: () {
+              Navigator.of(ctx).pop();
+            },
+          ),
+          FlatButton(
+            child: Text('Yes'),
+            onPressed: () {
+              Provider.of<Auth>(context).logout();
+              Navigator.of(ctx).pop();
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => AuthScreen()),
+              );
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -168,7 +206,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           color: const Color(0xFF7B65E4),
                           shape: RoundedRectangleBorder(
                               borderRadius: new BorderRadius.circular(8.0)),
-                          onPressed: () {},
+                          onPressed: () => _showErrorDialog(
+                            'Are you sure you want to logout?',
+                          ),
                         ),
                       ),
                     )

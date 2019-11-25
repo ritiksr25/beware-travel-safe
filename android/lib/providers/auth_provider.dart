@@ -148,4 +148,18 @@ class Auth with ChangeNotifier {
       //throw (error);
     }
   }
+
+  Future<void> logout() async {
+    _token = null;
+
+    _expiryDate = null;
+    _userRole = null;
+
+    final userDataPrefs = await SharedPreferences.getInstance();
+    userDataPrefs.remove('userData');
+    final tokenPrefs = await SharedPreferences.getInstance();
+
+    tokenPrefs.remove('userToken');
+    notifyListeners();
+  }
 }
