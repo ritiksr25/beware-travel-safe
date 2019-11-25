@@ -1,8 +1,5 @@
-import 'package:beware_travel_safe/provider/auth.dart';
+import 'package:beware_travel_safe/providers/auth.dart';
 import 'package:beware_travel_safe/routes/intro_screen.dart';
-import 'package:beware_travel_safe/routes/profile_screen.dart';
-import 'package:beware_travel_safe/routes/register_screen.dart';
-import 'package:beware_travel_safe/routes/search_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';

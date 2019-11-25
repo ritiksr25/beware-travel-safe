@@ -261,4 +261,3 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 }
 
-class Provider {}
