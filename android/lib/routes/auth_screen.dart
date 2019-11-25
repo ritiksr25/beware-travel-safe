@@ -31,11 +31,33 @@ class _AuthScreenState extends State<AuthScreen> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('An Error Occurred!'),
-        content: Text(message),
+        title: Text(
+          'Message',
+          style: TextStyle(
+            fontSize: 32,
+            fontFamily: 'Product Sans',
+            color: const Color(0xFF7B65E4),
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        content: Text(
+          message,
+          style: TextStyle(
+            fontSize: 18,
+            fontFamily: 'Product Sans',
+            color: const Color(0xFF676767),
+            fontWeight: FontWeight.w400,
+          ),
+        ),
         actions: <Widget>[
           FlatButton(
-            child: Text('Okay'),
+            child: Text(
+              'Okay',
+              style: TextStyle(
+                  color: const Color(0xFF7B65E4),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
             onPressed: () {
               Navigator.of(ctx).pop();
             },
@@ -49,11 +71,26 @@ class _AuthScreenState extends State<AuthScreen> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Message!'),
-        content: Text('Oopss...Request Time Out !!'),
+        title: Text(
+          'Message!',
+          style: TextStyle(
+            fontSize: 32,
+            fontFamily: 'Product Sans',
+            color: const Color(0xFF7B65E4),
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        content: Text('Oopss...Request Time Out !!',
+            style: Theme.of(context).textTheme.body2),
         actions: <Widget>[
           FlatButton(
-            child: Text('Okay'),
+            child: Text(
+              'Okay',
+              style: TextStyle(
+                  color: const Color(0xFF7B65E4),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
             onPressed: () {
               Navigator.of(ctx).pop();
             },
@@ -86,7 +123,8 @@ class _AuthScreenState extends State<AuthScreen> {
           context,
           MaterialPageRoute(builder: (context) => SearchScreen()),
         );
-      }
+      } else
+        _showErrorDialog(Provider.of<Auth>(context).loginMessage);
     } catch (error) {
       if (error.toString().isNotEmpty)
         _showErrorDialog(Provider.of<Auth>(context).loginMessage);

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:async';
 
+import 'package:beware_travel_safe/models/view_profile_model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,6 +17,7 @@ class Auth with ChangeNotifier {
   String _loginMessage;
   String userToken;
   String _errorMsg;
+  ViewProfile _viewProfileData;
 
   bool get isAuth {
     print('in isAuth');
@@ -53,6 +55,10 @@ class Auth with ChangeNotifier {
 
   String get loginMessage {
     return _loginMessage;
+  }
+
+  ViewProfile get viewProfileData {
+    return _viewProfileData;
   }
 
   Future<void> signup(
@@ -113,11 +119,33 @@ class Auth with ChangeNotifier {
           seconds: 300,
         ),
       );
-
-      // _autoLogout();
       notifyListeners();
     } catch (error) {
       print(error);
+    }
+  }
+
+  Future<void> viewProfile() async {
+    final url = 'https://bewaretravelsafe.herokuapp.com/api/v1/users/profile';
+
+    final token = await SharedPreferences.getInstance();
+    final userToken = token.getString('userToken');
+
+    try {
+      final response = await http.get(
+        url,
+        headers: {
+          'x-auth-token': userToken,
+        },
+      );
+
+      final extractedData = json.decode(response.body);
+
+      _viewProfileData = ViewProfile.fromJson(extractedData);
+      print(_viewProfileData.toString());
+      notifyListeners();
+    } on NoSuchMethodError {} catch (error) {
+      //throw (error);
     }
   }
 }
