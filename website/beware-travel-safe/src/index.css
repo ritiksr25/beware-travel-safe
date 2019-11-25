@@ -1,0 +1,5 @@
+@font-face {
+  font-family: Product Sans;
+  src: local("Product Sans Regular"),
+    url(./fonts/ProductSans-Regular.ttf) format("truetype");
+}
