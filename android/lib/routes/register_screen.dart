@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:beware_travel_safe/routes/auth_screen.dart';
-import 'package:beware_travel_safe/providers/auth.dart';
+import 'package:beware_travel_safe/providers/auth_provider.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -187,6 +187,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     Container(
                       padding: EdgeInsets.only(top: 20.0),
                       child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
