@@ -114,6 +114,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           style: TextStyle(
                             fontSize: 16.0,
                             fontFamily: 'Product Sans',
+                            color: const Color(0xFF767676)
                           ),
                         ),
                         InkWell(
