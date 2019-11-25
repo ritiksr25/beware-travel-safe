@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:async';
 
+import 'package:beware_travel_safe/models/get_data.dart';
 import 'package:beware_travel_safe/models/view_profile_model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Auth with ChangeNotifier {
-  DateTime _expiryDate;
   String _token;
   String _id;
   String _userRole;
@@ -18,6 +18,7 @@ class Auth with ChangeNotifier {
   String userToken;
   String _errorMsg;
   ViewProfile _viewProfileData;
+  List<GetData> _getDataofLoc;
 
   bool get isAuth {
     print('in isAuth');
@@ -59,6 +60,10 @@ class Auth with ChangeNotifier {
 
   ViewProfile get viewProfileData {
     return _viewProfileData;
+  }
+
+  List<GetData> get getData {
+    return [..._getDataofLoc];
   }
 
   Future<void> signup(
@@ -114,11 +119,6 @@ class Auth with ChangeNotifier {
       final token = await SharedPreferences.getInstance();
       token.setString('userToken', _token);
 
-      _expiryDate = DateTime.now().add(
-        Duration(
-          seconds: 300,
-        ),
-      );
       notifyListeners();
     } catch (error) {
       print(error);
@@ -149,10 +149,36 @@ class Auth with ChangeNotifier {
     }
   }
 
+  Future<void> getDataOfLoc() async {
+    final url = 'https://bewaretravelsafe.herokuapp.com/api/v1/data';
+
+    final token = await SharedPreferences.getInstance();
+    final userToken = token.getString('userToken');
+
+    try {
+      final response = await http.get(
+        url,
+        headers: {
+          'x-auth-token': userToken,
+        },
+      );
+
+      final extractedData = json.decode(response.body);
+      List<GetData> _loadedLoc = [];
+      _loadedLoc = (extractedData['data'] as List)
+          .map((i) => GetData.fromJson(i))
+          .toList();
+      _getDataofLoc = _loadedLoc;
+
+      print(_getDataofLoc.toString());
+      notifyListeners();
+    } on NoSuchMethodError {} catch (error) {
+      //throw (error);
+    }
+  }
+
   Future<void> logout() async {
     _token = null;
-
-    _expiryDate = null;
     _userRole = null;
 
     final userDataPrefs = await SharedPreferences.getInstance();
