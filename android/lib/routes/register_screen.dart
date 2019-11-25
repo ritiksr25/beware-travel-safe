@@ -21,10 +21,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
     'isAdmin': '',
   };
   bool _isLoading = false;
+  final _newPass = TextEditingController();
+  final _newCnfPass = TextEditingController();
+
+  bool passwordVisible;
+  bool passwordVisible1;
 
   @override
   void initState() {
     _authData['isAdmin'] = 'false';
+    passwordVisible = true;
+    passwordVisible1 = true;
     super.initState();
   }
 
@@ -32,11 +39,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Message'),
-        content: Text(message),
+        title: Text(
+          'Message',
+          style: TextStyle(
+            fontSize: 32,
+            fontFamily: 'Product Sans',
+            color: const Color(0xFF7B65E4),
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        content: Text(
+          message,
+          style: TextStyle(
+            fontSize: 18,
+            fontFamily: 'Product Sans',
+            color: const Color(0xFF676767),
+            fontWeight: FontWeight.w400,
+          ),
+        ),
         actions: <Widget>[
           FlatButton(
-            child: Text('Okay'),
+            child: Text(
+              'Okay',
+              style: TextStyle(
+                  color: const Color(0xFF7B65E4),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
             onPressed: () {
               Navigator.of(ctx).pop();
             },
@@ -50,11 +79,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Message!'),
-        content: Text('Oopss...Request Time Out !!'),
+        title: Text('Message!', style: Theme.of(context).textTheme.title),
+        content: Text('Oopss...Request Time Out !!',
+            style: Theme.of(context).textTheme.body2),
         actions: <Widget>[
           FlatButton(
-            child: Text('Okay'),
+            child: Text(
+              'Okay',
+              style: TextStyle(
+                  color: const Color(0xFF7B65E4),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
             onPressed: () {
               Navigator.of(ctx).pop();
             },
@@ -108,15 +144,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(
-                "Register",
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontFamily: 'Product Sans',
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-              ),
+              Text("Register", style: Theme.of(context).textTheme.title),
               Image(
                 width: 200.0,
                 image: AssetImage('assets/images/registerimage.png'),
@@ -146,6 +174,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             color: const Color(0xFF7B65E4),
                           ),
                         ),
+                        validator: (String value) {
+                          if (value.trim().isEmpty) {
+                            return 'Name is required';
+                          }
+                        },
+                        onSaved: (value) {
+                          _authData['name'] = value;
+                        },
                       ),
                     ),
                     Container(
@@ -169,13 +205,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             color: const Color(0xFF7B65E4),
                           ),
                         ),
+                        validator: (String value) {
+                          if (value.isEmpty ||
+                              !RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                                  .hasMatch(value)) {
+                            return 'Please enter a valid email';
+                          }
+                        },
+                        onSaved: (value) {
+                          _authData['email'] = value;
+                        },
                       ),
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 20.0),
                       child: TextFormField(
+                        controller: _newPass,
+                        obscureText: passwordVisible,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              passwordVisible
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: const Color(0xFF7B65E4),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                passwordVisible = !passwordVisible;
+                              });
+                            },
+                          ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                                 color: const Color(0xFF7B65E4), width: 1),
@@ -192,13 +253,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             color: const Color(0xFF7B65E4),
                           ),
                         ),
+                        validator: (String value) {
+                          if (value.isEmpty || value.length < 8) {
+                            return 'must contain atleast 8 characters';
+                          }
+                        },
                       ),
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 20.0),
                       child: TextFormField(
+                        controller: _newCnfPass,
+                        obscureText: passwordVisible,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              passwordVisible
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: const Color(0xFF7B65E4),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                passwordVisible = !passwordVisible;
+                              });
+                            },
+                          ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                                 color: const Color(0xFF7B65E4), width: 1),
@@ -215,6 +296,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             color: const Color(0xFF7B65E4),
                           ),
                         ),
+                        validator: (String value) {
+                          if (value.length < 8) {
+                            return 'must contain atleast 8 characters';
+                          }
+                          if (value != _newPass.text) {
+                            return 'Password is not matching';
+                          }
+                        },
+                        onSaved: (value) {
+                          _authData['password'] = value;
+                        },
                       ),
                     ),
                   ],
@@ -222,12 +314,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               if (_isLoading)
                 Container(
-                    padding: EdgeInsets.all(5),
+                    margin: EdgeInsets.only(top: 10),
+                    padding: EdgeInsets.all(10),
                     width: 50,
                     height: 50,
                     child: CircularProgressIndicator(
                       valueColor:
-                          AlwaysStoppedAnimation<Color>(Color(0XFFB4344D)),
+                          AlwaysStoppedAnimation<Color>(Color(0xFF7B65E4)),
                     ))
               else
                 Container(
@@ -260,4 +353,3 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 }
-

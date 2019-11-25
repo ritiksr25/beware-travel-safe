@@ -64,7 +64,18 @@ class _MyAppState extends State<MyApp> {
                       color: const Color(0xFF7B65E4),
                       fontWeight: FontWeight.w600,
                     ),
-                    body1: TextStyle(),
+                    body1: TextStyle(
+                      fontSize: 24,
+                      fontFamily: 'Product Sans',
+                      color: const Color(0xFF7B65E4),
+                      fontWeight: FontWeight.w600,
+                    ),
+                    body2: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'Product Sans',
+                      color: const Color(0xFF676767),
+                      fontWeight: FontWeight.w400,
+                    ),
                   )),
           home: IntroScreen(),
 //      Scaffold(
