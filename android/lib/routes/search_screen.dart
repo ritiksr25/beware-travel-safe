@@ -1,3 +1,4 @@
+import 'package:beware_travel_safe/routes/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -19,10 +20,19 @@ class _SearchScreenState extends State<SearchScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Icon(
-                    Icons.menu,
-                    color: Color(0xFF7B65E4),
-                    size: 32.0,
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProfileScreen()),
+                      );
+                    },
+                    child: Icon(
+                      Icons.menu,
+                      color: Color(0xFF7B65E4),
+                      size: 32.0,
+                    ),
                   ),
                   Image(
                     image: AssetImage("assets/images/searchimage.png"),
