@@ -69,10 +69,14 @@ class _SearchScreenState extends State<SearchScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  GestureDetector(
-                    onTap: () =>
-                        scaffoldKeySearchScreen.currentState.openDrawer(),
+                children: <Widget>[                  InkWell(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProfileScreen()),
+                      );
+                    },                 
                     child: Icon(
                       Icons.menu,
                       color: Color(0xFF7B65E4),

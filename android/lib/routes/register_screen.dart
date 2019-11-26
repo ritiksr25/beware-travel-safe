@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
-
 import 'package:beware_travel_safe/routes/auth_screen.dart';
 import 'package:beware_travel_safe/providers/auth_provider.dart';
 

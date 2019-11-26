@@ -39,6 +39,10 @@ flutter:
     - assets/images/authimage.png
     - assets/images/searchimage.png
     - assets/images/registerimage.png
+    - assets/images/accidentselected.png
+    - assets/images/accidentunselected.png
+    - assets/images/crimeselected.png
+    - assets/images/crimeunselected.png
 
   uses-material-design: true
 
