@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import mainImg from "./mainImg.svg";
 import mainImg2 from "./mainImg2.svg";
+import * as ROUTES from "../../utils/routes";
+import axios from "axios";
 import "./style.css";
-import auth from "../../services/auth";
 
 class Home extends Component {
   constructor(props) {
@@ -23,87 +25,29 @@ class Home extends Component {
     });
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
     const { email, password } = this.state;
     let payload = {
       email: email,
       password: password
     };
-    console.log(payload);
-    auth.login(email, password);
+    try {
+      const response = await axios.post(ROUTES.loginUrl, payload);
+      if (response.status === 200) {
+        localStorage.setItem("token", response.headers["x-auth-token"]);
+        this.setState({ loggedIn: true });
+      }
+    } catch (err) {
+      if (err.response === undefined) console.log(err.message);
+      else console.log(err.response);
+    }
   };
-  // constructor() {
-  //   super();
-  //   this.input = React.createRef();
-  //   this.input1 = React.createRef();
-  // }
-
-  // handleSumbit = async event => {
-  //   const data = {
-  //     username: this.input.current.value,
-  //     password: this.input1.current.value
-  //   };
-  //   console.log(data);
-  //   // this.setState({ data: data });
-  //   // console.log(this.state.data.username);
-  //   // this.handleLogin();
-  //   try {
-  //     const response = await auth.login(data.username, data.password);
-  //     console.log(response);
-  //   } catch (ex) {
-  //     console.log(ex);
-  //     // if (ex.response && ex.response.status === 400) {
-  //     //   const errors = { ...this.state.errors };
-  //     //   errors.username = ex.response.data;
-  //     //   this.setState({ errors });
-  //     // }
-  //   }
-  //   event.preventDefault();
-  // };
-
-  // handleLogin = async () => {
-  //   console.log(this.state.data.username);
-  // };
-
-  // handleEmailChange = e => {
-  //   const email = e+email;
-  //   console.log
-  // };
-
-  // handleSumbit() {
-  //   console.log(this.state.username);
-  // }
-  // handleChange(event) {
-  //   const data = {
-  //     username: event.target.value,
-  //     password: ""
-  //   };
-  //   this.setState({});
-  //   event.preventDefault();
-  // }
-
-  // doSubmit = () => {
-  //   console.log("doSubmit");
-  //   // try {
-  //   //   const response = await auth.login(
-  //   //     this.state.data.username,
-  //   //     this.state.data.password
-  //   //   );
-  //   //   console.log(response);
-  //   // } catch (ex) {
-  //   //   console.log(ex);
-  //   // }
-  // };
-  // handleClick(e) {
-  //   var payload = {
-  //     email: this.state.username,
-  //     password: this.state.password
-  //   };
-  //   console.log(payload);
-  // }
 
   render() {
+    if (this.state.loggedIn) {
+      return <Redirect to="/dashboard" />;
+    }
     return (
       <React.Fragment>
         <div className="fluid-container">
