@@ -63,9 +63,13 @@ class Dashboard extends Component {
                   <p className="heading" style={{ fontSize: "32px" }}>
                     Dashboard
                   </p>
+                  <p className="heading" style={{ fontSize: "16px" }}>
+                    List of Crime and Accident Points:
+                  </p>
                 </div>
                 <div className="card p-4">
                   <table class="table table-striped">
+
                     <thead>
                       <tr>
                         <th scope="col">S.No.</th>
@@ -77,21 +81,63 @@ class Dashboard extends Component {
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td>343.434</td>
-                        <td>343.545</td>
-                        <td>Gaadi ka tel khtm ho gya</td>
+                        <td>343.4341</td>
+                        <td>343.5454</td>
+                        <td>Crime</td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
-                        <td>265.254</td>
-                        <td>25.25614</td>
-                        <td>Gaadi puncture</td>
+                        <td>265.2548</td>
+                        <td>252.2561</td>
+                        <td>Crime</td>
                       </tr>
                       <tr>
                         <th scope="row">3</th>
-                        <td>48</td>
+                        <td>261.5636</td>
                         <td>564.2545</td>
-                        <td>neend aa gyi chalate hue</td>
+                        <td>Crime</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
+                        <td>343.4341</td>
+                        <td>343.5453</td>
+                        <td>Accident</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">5</th>
+                        <td>265.2547</td>
+                        <td>25.2561</td>
+                        <td>Accident</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">6</th>
+                        <td>564.2545</td>
+                        <td>261.5636</td>
+                        <td>Crime</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">7</th>
+                        <td>343.4348</td>
+                        <td>343.5459</td>
+                        <td>Crime</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">8</th>
+                        <td>265.2541</td>
+                        <td>261.5636</td>
+                        <td>Crime</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">9</th>
+                        <td>564.2545</td>
+                        <td>261.5636</td>
+                        <td>Crime</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">10</th>
+                        <td>261.5636</td>
+                        <td>564.2545</td>
+                        <td>Crime</td>
                       </tr>
                     </tbody>
                   </table>
