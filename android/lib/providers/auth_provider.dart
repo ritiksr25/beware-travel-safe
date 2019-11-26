@@ -149,8 +149,9 @@ class Auth with ChangeNotifier {
     }
   }
 
-  Future<void> getDataOfLoc() async {
-    final url = 'https://bewaretravelsafe.herokuapp.com/api/v1/data';
+  Future<void> getDataOfLoc({Map queryParameters}) async {
+    final url = Uri.https("bewaretravelsafe.herokuapp.com",
+        "/api/v1/data", queryParameters);
 
     final token = await SharedPreferences.getInstance();
     final userToken = token.getString('userToken');
@@ -169,8 +170,13 @@ class Auth with ChangeNotifier {
           .map((i) => GetData.fromJson(i))
           .toList();
       _getDataofLoc = _loadedLoc;
+      print(
+          '**************************************************************************************************************************************************************************************************************');
+      
+      print(_getDataofLoc.toList());
+      print(
+          '**************************************************************************************************************************************************************************************************************');
 
-      print(_getDataofLoc.toString());
       notifyListeners();
     } on NoSuchMethodError {} catch (error) {
       //throw (error);

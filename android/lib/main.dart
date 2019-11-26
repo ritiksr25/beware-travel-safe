@@ -1,6 +1,6 @@
 import 'package:beware_travel_safe/providers/auth_provider.dart';
 import 'package:beware_travel_safe/routes/intro_screen.dart';
-import 'package:beware_travel_safe/routes/root_screen.dart';
+import 'package:beware_travel_safe/routes/route_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
                       fontWeight: FontWeight.w400,
                     ),
                   )),
-          home: RootScreen(),
+          home: IntroScreen(),
         ),
       ),
     );

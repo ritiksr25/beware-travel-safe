@@ -1,5 +1,6 @@
 import 'package:beware_travel_safe/providers/auth_provider.dart';
 import 'package:beware_travel_safe/routes/profile_screen.dart';
+import 'package:beware_travel_safe/routes/route_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -72,8 +73,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 children: <Widget>[
                   InkWell(
                     onTap: () {
-                      scaffoldKeySearchScreen.currentState
-                          .openDrawer();
+                      scaffoldKeySearchScreen.currentState.openDrawer();
                     },
                     child: Icon(
                       Icons.menu,
@@ -152,7 +152,12 @@ class _SearchScreenState extends State<SearchScreen> {
                     color: const Color(0xFF7B65E4),
                     shape: RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(8.0)),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RouteScreen()),
+                      );
+                    },
                   ),
                 ),
               )
