@@ -4,10 +4,10 @@ import * as ROUTES from "../../utils/routes";
 class Dashboard extends Component {
   state = {};
 
-  async componentDidMount() {
-    const response = await axios.get(ROUTES.crimeData);
-    console.log(response);
-  }
+  // async componentDidMount() {
+  //   const response = await axios.get(ROUTES.crimeData);
+  //   console.log(response);
+  // }
   render() {
     return (
       <React.Fragment>

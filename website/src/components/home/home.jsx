@@ -2,9 +2,107 @@ import React, { Component } from "react";
 import mainImg from "./mainImg.svg";
 import mainImg2 from "./mainImg2.svg";
 import "./style.css";
+import auth from "../../services/auth";
 
 class Home extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    let loggedIn = false;
+    this.state = {
+      email: "",
+      password: "",
+      loggedIn
+    };
+    this.onChange = this.onChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  onChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { email, password } = this.state;
+    let payload = {
+      email: email,
+      password: password
+    };
+    console.log(payload);
+    auth.login(email, password);
+  };
+  // constructor() {
+  //   super();
+  //   this.input = React.createRef();
+  //   this.input1 = React.createRef();
+  // }
+
+  // handleSumbit = async event => {
+  //   const data = {
+  //     username: this.input.current.value,
+  //     password: this.input1.current.value
+  //   };
+  //   console.log(data);
+  //   // this.setState({ data: data });
+  //   // console.log(this.state.data.username);
+  //   // this.handleLogin();
+  //   try {
+  //     const response = await auth.login(data.username, data.password);
+  //     console.log(response);
+  //   } catch (ex) {
+  //     console.log(ex);
+  //     // if (ex.response && ex.response.status === 400) {
+  //     //   const errors = { ...this.state.errors };
+  //     //   errors.username = ex.response.data;
+  //     //   this.setState({ errors });
+  //     // }
+  //   }
+  //   event.preventDefault();
+  // };
+
+  // handleLogin = async () => {
+  //   console.log(this.state.data.username);
+  // };
+
+  // handleEmailChange = e => {
+  //   const email = e+email;
+  //   console.log
+  // };
+
+  // handleSumbit() {
+  //   console.log(this.state.username);
+  // }
+  // handleChange(event) {
+  //   const data = {
+  //     username: event.target.value,
+  //     password: ""
+  //   };
+  //   this.setState({});
+  //   event.preventDefault();
+  // }
+
+  // doSubmit = () => {
+  //   console.log("doSubmit");
+  //   // try {
+  //   //   const response = await auth.login(
+  //   //     this.state.data.username,
+  //   //     this.state.data.password
+  //   //   );
+  //   //   console.log(response);
+  //   // } catch (ex) {
+  //   //   console.log(ex);
+  //   // }
+  // };
+  // handleClick(e) {
+  //   var payload = {
+  //     email: this.state.username,
+  //     password: this.state.password
+  //   };
+  //   console.log(payload);
+  // }
+
   render() {
     return (
       <React.Fragment>
@@ -18,7 +116,6 @@ class Home extends Component {
                   color: "#7B65E4",
                   fontSize: "22px"
                 }}
-                href="#"
               >
                 Travel Safe
               </a>
@@ -43,9 +140,7 @@ class Home extends Component {
                   style={{ width: "100%" }}
                 >
                   <li className="nav-item">
-                    <a className="nav-link " href="#">
-                      About Us
-                    </a>
+                    <a className="nav-link ">About Us</a>
                   </li>
                 </ul>
               </div>
@@ -62,36 +157,46 @@ class Home extends Component {
                   </p>
                 </div>
                 <div className="col-lg-6">
-                  <div className="card card-edit">
-                    <div className="text-center mt-3">
-                      <p className="heading">
-                        <span className="underline">Log In</span>
-                      </p>
-                      <img
-                        className="img-fluid m-2"
-                        src={mainImg}
-                        alt="login-img"
-                      />
+                  <form onSubmit={this.handleSubmit}>
+                    <div className="card card-edit">
+                      <div className="text-center mt-3">
+                        <p className="heading">
+                          <span className="underline">Log In</span>
+                        </p>
+                        <img
+                          className="img-fluid m-2"
+                          src={mainImg}
+                          alt="login-img"
+                        />
+                      </div>
+                      <div className="form-group mx-4 mt-3">
+                        <input
+                          type="email"
+                          name="email"
+                          className="form-control"
+                          placeholder="Email"
+                          value={this.state.email}
+                          onChange={this.onChange}
+                        />
+                      </div>
+                      <div className="form-group mx-4">
+                        <input
+                          type="password"
+                          name="password"
+                          className="form-control"
+                          placeholder="Password"
+                          value={this.state.password}
+                          onChange={this.onChange}
+                        />
+                      </div>
+                      <button
+                        className="btn btn-primary mx-4 mb-4"
+                        type="submit"
+                      >
+                        Log In
+                      </button>
                     </div>
-                    <div className="form-group mx-4 mt-3">
-                      <input
-                        type="email"
-                        className="form-control"
-                        aria-describedby="emailHelp"
-                        placeholder="Email"
-                      />
-                    </div>
-                    <div className="form-group mx-4">
-                      <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Password"
-                      />
-                    </div>
-                    <button className="btn btn-primary mx-4 mb-4" type="button">
-                      Log In
-                    </button>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>

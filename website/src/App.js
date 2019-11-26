@@ -8,9 +8,9 @@ import Dashboard from "./components/dashboard/dashboard";
 function App() {
   return (
     <Switch>
-      <Route path="/home" component={Home} />
-      <Route path="/add" component={AddForm} />
-      <Route path="/dashboard" component={Dashboard} />
+      <Route exact path="/home" component={Home} />
+      <Route exact path="/add" component={AddForm} />
+      <Route exact path="/dashboard" component={Dashboard} />
       <Redirect exact from="/" to="/home" />
     </Switch>
   );
