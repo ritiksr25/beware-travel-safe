@@ -1,5 +1,8 @@
+import 'package:beware_travel_safe/providers/auth_provider.dart';
+
 import 'package:beware_travel_safe/routes/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -7,9 +10,57 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  final GlobalKey<ScaffoldState> scaffoldKeySearchScreen =
+      GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKeySearchScreen,
+      drawer: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.60,
+        child: Drawer(
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              Container(
+                height: 100,
+                child: DrawerHeader(
+                  child: Text(
+                    'Dashboard',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 0.5,
+                      fontFamily: "Montserrat",
+                      fontSize: 20.0,
+                      wordSpacing: 1,
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Color(0xFF7B65E4),
+                  ),
+                ),
+              ),
+              Consumer<Auth>(
+                builder: (_, customer, ch) => ListTile(
+                  dense: true,
+                  title: Text('View Profile'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProfileScreen()),
+                    );
+                  },
+                ),
+              ),
+              Divider(),
+            ],
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 40.0, horizontal: 24.0),
@@ -21,7 +72,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   InkWell(
-                    onTap: (){
+                    onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -50,13 +101,11 @@ class _SearchScreenState extends State<SearchScreen> {
               Container(
                 padding: EdgeInsets.only(top: 20.0),
                 child: TextFormField(
-                  style: TextStyle(
-                      color: Colors.black
-                  ),
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                      BorderSide(color: const Color(0xFF7B65E4), width: 1),
+                          BorderSide(color: const Color(0xFF7B65E4), width: 1),
                     ),
                     filled: true,
                     fillColor: Colors.white,
@@ -71,13 +120,11 @@ class _SearchScreenState extends State<SearchScreen> {
               Container(
                 padding: EdgeInsets.only(top: 20.0),
                 child: TextFormField(
-                  style: TextStyle(
-                      color: Colors.black
-                  ),
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                      BorderSide(color: const Color(0xFF7B65E4), width: 1),
+                          BorderSide(color: const Color(0xFF7B65E4), width: 1),
                     ),
                     filled: true,
                     fillColor: Colors.white,
@@ -90,7 +137,9 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 20.0,),
+                padding: EdgeInsets.only(
+                  top: 20.0,
+                ),
                 child: SizedBox(
                   width: double.infinity,
                   child: RaisedButton(

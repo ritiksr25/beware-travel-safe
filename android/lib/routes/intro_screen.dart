@@ -50,7 +50,7 @@ class _IntroScreenState extends State<IntroScreen> {
                       shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(8.0)),
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => AuthScreen()));
