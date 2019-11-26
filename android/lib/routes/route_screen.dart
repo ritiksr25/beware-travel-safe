@@ -13,6 +13,9 @@ class RouteScreen extends StatefulWidget {
 }
 
 class RouteScreenState extends State<RouteScreen> {
+  final GlobalKey<ScaffoldState> scaffoldKeyRouteScreen =
+      GlobalKey<ScaffoldState>();
+
   GoogleMapController mapController;
   Position position;
   bool _isInit;
@@ -73,6 +76,63 @@ class RouteScreenState extends State<RouteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKeyRouteScreen,
+      drawer: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.60,
+        child: Drawer(
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              Container(
+                height: 100,
+                child: DrawerHeader(
+                  child: Text(
+                    'Dashboard',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 0.5,
+                      fontFamily: "Montserrat",
+                      fontSize: 20.0,
+                      wordSpacing: 1,
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Color(0xFF7B65E4),
+                  ),
+                ),
+              ),
+              Consumer<Auth>(
+                builder: (_, customer, ch) => ListTile(
+                  dense: true,
+                  title: Text('View Profile'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProfileScreen()),
+                    );
+                  },
+                ),
+              ),
+              Divider(),
+              ListTile(
+                dense: true,
+                title: Text('Search'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SearchScreen()),
+                  );
+                },
+              ),
+              Divider(),
+            ],
+          ),
+        ),
+      ),
       body: Stack(
         children: <Widget>[
           GoogleMap(
@@ -111,11 +171,7 @@ class RouteScreenState extends State<RouteScreen> {
                       children: <Widget>[
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ProfileScreen()),
-                            );
+                            scaffoldKeyRouteScreen.currentState.openDrawer();
                           },
                           child: Icon(
                             Icons.menu,
