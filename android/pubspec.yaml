@@ -43,6 +43,7 @@ flutter:
     - assets/images/accidentunselected.png
     - assets/images/crimeselected.png
     - assets/images/crimeunselected.png
+    - assets/crimemarker.png
 
   uses-material-design: true
 

@@ -31,7 +31,7 @@ class RouteScreenState extends State<RouteScreen> {
     super.initState();
   }
 
-  final LatLng _center = const LatLng(28.644800, 77.216721);
+  final LatLng _center = const LatLng(28.616552, 77.176097);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -59,19 +59,15 @@ class RouteScreenState extends State<RouteScreen> {
   }
 
   Set<Marker> _createMarker() {
-    Set<Marker> localMarkers = Set();
-
-    <Marker>[
+    return <Marker>[
       for (var i = 0; i < locData.length; i++)
         Marker(
           markerId: MarkerId(locData[i].sId),
           position: LatLng(locData[i].latitude, locData[i].longitude),
           icon: BitmapDescriptor.defaultMarker,
-          infoWindow: InfoWindow(title: "current location"),
+          //infoWindow: InfoWindow(title: "current location"),
         )
     ].toSet();
-
-    return localMarkers;
   }
 
   @override
@@ -85,7 +81,7 @@ class RouteScreenState extends State<RouteScreen> {
             markers: _createMarker(),
             initialCameraPosition: CameraPosition(
               target: _center,
-              zoom: 8.0,
+              zoom: 12.0,
             ),
           ),
           // if (_isLoading)
