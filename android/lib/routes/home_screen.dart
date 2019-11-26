@@ -146,46 +146,52 @@ class _HomeScreenState extends State<HomeScreen> {
 //                    ],
 //                  ),
 //                ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20.0),
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 60.0),
-                      color: Colors.white,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          if(_isCrimeSelected)
-                          Image(
-                            height: 52.0,
-                            image:
-                                AssetImage('assets/images/crimeselected.png'),
-                          ),
-                          if(_isCrimeSelected)
-                          Image(
-                            height: 52.0,
-                            image: AssetImage(
-                                'assets/images/accidentunselected.png'),
-                          ),
-                          if(!_isCrimeSelected)
-                            Image(
-                              height: 52.0,
-                              image:
-                              AssetImage('assets/images/crimeunselcted.png'),
-                            ),
-                          if(!_isCrimeSelected)
-                            Image(
-                              height: 52.0,
-                              image:
-                              AssetImage('assets/images/accidentselected.png'),
-                            ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
+
+
+
+
+
+
+//                Container(
+//                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+//                  child: ClipRRect(
+//                    borderRadius: BorderRadius.circular(20.0),
+//                    child: Container(
+//                      padding:
+//                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 60.0),
+//                      color: Colors.white,
+//                      child: Row(
+//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                        children: <Widget>[
+//                          if(_isCrimeSelected)
+//                          Image(
+//                            height: 52.0,
+//                            image:
+//                                AssetImage('assets/images/crimeselected.png'),
+//                          ),
+//                          if(_isCrimeSelected)
+//                          Image(
+//                            height: 52.0,
+//                            image: AssetImage(
+//                                'assets/images/accidentunselected.png'),
+//                          ),
+//                          if(!_isCrimeSelected)
+//                            Image(
+//                              height: 52.0,
+//                              image:
+//                              AssetImage('assets/images/crimeunselcted.png'),
+//                            ),
+//                          if(!_isCrimeSelected)
+//                            Image(
+//                              height: 52.0,
+//                              image:
+//                              AssetImage('assets/images/accidentselected.png'),
+//                            ),
+//                        ],
+//                      ),
+//                    ),
+//                  ),
+//                )
               ],
             ),
           )

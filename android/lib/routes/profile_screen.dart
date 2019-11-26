@@ -1,6 +1,7 @@
 import 'package:beware_travel_safe/models/view_profile_model.dart';
 import 'package:beware_travel_safe/providers/auth_provider.dart';
 import 'package:beware_travel_safe/routes/auth_screen.dart';
+import 'package:beware_travel_safe/routes/home_screen.dart';
 import 'package:beware_travel_safe/routes/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -118,7 +119,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Navigator.pop(context);
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SearchScreen()),
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
                       );
                     },
                   ),

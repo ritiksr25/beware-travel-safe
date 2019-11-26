@@ -4,6 +4,8 @@ import 'package:beware_travel_safe/routes/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'home_screen.dart';
+
 class AuthScreen extends StatefulWidget {
   @override
   _AuthScreenState createState() => _AuthScreenState();
@@ -121,7 +123,7 @@ class _AuthScreenState extends State<AuthScreen> {
       if (msg == 'Login Successful') {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SearchScreen()),
+          MaterialPageRoute(builder: (context) => HomeScreen()),
         );
       } else
         _showErrorDialog(Provider.of<Auth>(context).loginMessage);

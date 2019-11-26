@@ -1,4 +1,5 @@
 import 'package:beware_travel_safe/providers/auth_provider.dart';
+import 'package:beware_travel_safe/routes/home_screen.dart';
 
 import 'package:beware_travel_safe/routes/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -73,11 +74,8 @@ class _SearchScreenState extends State<SearchScreen> {
                 children: <Widget>[
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ProfileScreen()),
-                      );
+                      scaffoldKeySearchScreen.currentState
+                          .openDrawer();
                     },
                     child: Icon(
                       Icons.menu,

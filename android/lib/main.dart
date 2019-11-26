@@ -52,6 +52,7 @@ class _MyAppState extends State<MyApp> {
                     ),
                   )),
           home: IntroScreen(),
+          debugShowCheckedModeBanner: false,
         ),
       ),
     );
