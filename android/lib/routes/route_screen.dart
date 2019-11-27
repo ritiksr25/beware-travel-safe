@@ -13,6 +13,9 @@ class RouteScreen extends StatefulWidget {
 }
 
 class RouteScreenState extends State<RouteScreen> {
+  final GlobalKey<ScaffoldState> scaffoldKeyRouteScreen =
+      GlobalKey<ScaffoldState>();
+
   GoogleMapController mapController;
   Position position;
   bool _isInit;
@@ -31,7 +34,7 @@ class RouteScreenState extends State<RouteScreen> {
     super.initState();
   }
 
-  final LatLng _center = const LatLng(28.644800, 77.216721);
+  final LatLng _center = const LatLng(28.616552, 77.176097);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -59,24 +62,77 @@ class RouteScreenState extends State<RouteScreen> {
   }
 
   Set<Marker> _createMarker() {
-    Set<Marker> localMarkers = Set();
-
-    <Marker>[
+    return <Marker>[
       for (var i = 0; i < locData.length; i++)
         Marker(
           markerId: MarkerId(locData[i].sId),
           position: LatLng(locData[i].latitude, locData[i].longitude),
           icon: BitmapDescriptor.defaultMarker,
-          infoWindow: InfoWindow(title: "current location"),
+          //infoWindow: InfoWindow(title: "current location"),
         )
     ].toSet();
-
-    return localMarkers;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKeyRouteScreen,
+      drawer: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.60,
+        child: Drawer(
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              Container(
+                height: 100,
+                child: DrawerHeader(
+                  child: Text(
+                    'Dashboard',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 0.5,
+                      fontFamily: "Montserrat",
+                      fontSize: 20.0,
+                      wordSpacing: 1,
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Color(0xFF7B65E4),
+                  ),
+                ),
+              ),
+              Consumer<Auth>(
+                builder: (_, customer, ch) => ListTile(
+                  dense: true,
+                  title: Text('View Profile'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProfileScreen()),
+                    );
+                  },
+                ),
+              ),
+              Divider(),
+              ListTile(
+                dense: true,
+                title: Text('Search'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SearchScreen()),
+                  );
+                },
+              ),
+              Divider(),
+            ],
+          ),
+        ),
+      ),
       body: Stack(
         children: <Widget>[
           GoogleMap(
@@ -85,7 +141,7 @@ class RouteScreenState extends State<RouteScreen> {
             markers: _createMarker(),
             initialCameraPosition: CameraPosition(
               target: _center,
-              zoom: 8.0,
+              zoom: 12.0,
             ),
           ),
           // if (_isLoading)
@@ -115,11 +171,7 @@ class RouteScreenState extends State<RouteScreen> {
                       children: <Widget>[
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ProfileScreen()),
-                            );
+                            scaffoldKeyRouteScreen.currentState.openDrawer();
                           },
                           child: Icon(
                             Icons.menu,

@@ -1,9 +1,11 @@
+import 'package:beware_travel_safe/providers/auth_provider.dart';
 import 'package:beware_travel_safe/routes/intro_screen.dart';
 import 'package:beware_travel_safe/routes/profile_screen.dart';
 import 'package:beware_travel_safe/routes/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,6 +13,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> scaffoldKeyHomeScreen =
+      GlobalKey<ScaffoldState>();
+
   GoogleMapController mapController;
   Position position;
   Widget _child;
@@ -43,6 +48,63 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKeyHomeScreen,
+      drawer: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.60,
+        child: Drawer(
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              Container(
+                height: 100,
+                child: DrawerHeader(
+                  child: Text(
+                    'Dashboard',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 0.5,
+                      fontFamily: "Montserrat",
+                      fontSize: 20.0,
+                      wordSpacing: 1,
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Color(0xFF7B65E4),
+                  ),
+                ),
+              ),
+              Consumer<Auth>(
+                builder: (_, customer, ch) => ListTile(
+                  dense: true,
+                  title: Text('View Profile'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProfileScreen()),
+                    );
+                  },
+                ),
+              ),
+              Divider(),
+              ListTile(
+                dense: true,
+                title: Text('Search'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SearchScreen()),
+                  );
+                },
+              ),
+              Divider(),
+            ],
+          ),
+        ),
+      ),
       body: Stack(
         children: <Widget>[
           GoogleMap(
@@ -82,11 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: <Widget>[
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ProfileScreen()),
-                            );
+                            scaffoldKeyHomeScreen.currentState.openDrawer();
                           },
                           child: Icon(
                             Icons.menu,
@@ -146,11 +204,6 @@ class _HomeScreenState extends State<HomeScreen> {
 //                    ],
 //                  ),
 //                ),
-
-
-
-
-
 
 //                Container(
 //                  padding: EdgeInsets.symmetric(horizontal: 20.0),

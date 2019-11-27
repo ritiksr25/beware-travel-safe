@@ -125,6 +125,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 Divider(),
+                ListTile(
+                  dense: true,
+                  title: Text('Search'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SearchScreen()),
+                    );
+                  },
+                ),
+                Divider(),
               ],
             ),
           ),
