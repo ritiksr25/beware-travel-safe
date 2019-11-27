@@ -1,8 +1,13 @@
 module.exports.getData = async (req, res) => {
-    let { type } = req.query;
+    let { type, id } = req.query;
     let filter = {};
     if (type) filter.type = type;
-    let data = await Location.find(filter).sort({ createdAt: "desc" });
+    let data;
+    if(id){
+        data = await Location.findById(id);
+    } else {
+        data = await Location.find(filter).sort({ createdAt: "desc" });
+    }
     res.status(200).json({ message: "success", error: false, data });
 };
 
