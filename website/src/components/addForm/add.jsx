@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-//import { Link } from "react-router-dom";
+import * as ROUTE from "../../utils/routes";
 import "./style.css";
-import Navbar from "../navbar/navbar";
+import axios from "axios";
 
 class AddForm extends Component {
   constructor(props) {
@@ -15,6 +15,30 @@ class AddForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleSubmit = async e => {
+    e.preventDefault();
+    console.log(this.state);
+    // const latitudes=this.state.x;
+    // try {
+    //   const token = localStorage.getItem("token");
+    //   const response = await axios.post(
+    //     ROUTE.addData,
+    //     {
+    //       headers: {
+    //         "x-auth-token": token,
+    //         "Content-Type": "application/x-www-form-urlencoded"
+    //       }
+    //     },
+    //     {
+    //       "latitude=latitudes&longitude=longitude&type= this.state.type"
+    //     }
+    //   );
+    //   console.log(response);
+    // } catch (ex) {
+    //   console.log(ex);
+    // }
+  };
+
   onChange(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -25,7 +49,6 @@ class AddForm extends Component {
     return (
       <React.Fragment>
         <div className="fluid-container">
-          <Navbar />
           <div className="main">
             <div className="container pt-5">
               <div
@@ -47,7 +70,8 @@ class AddForm extends Component {
                       </label>
                       <div className="col-sm-3">
                         <input
-                          type="email"
+                          type="number"
+                          name="x"
                           className="form-control"
                           placeholder="X"
                           value={this.state.x}
@@ -59,7 +83,8 @@ class AddForm extends Component {
                       </label>
                       <div className="col-sm-3">
                         <input
-                          type="email"
+                          type="number"
+                          name="y"
                           className="form-control"
                           placeholder="Y"
                           value={this.state.y}
@@ -71,14 +96,17 @@ class AddForm extends Component {
                       <label className="col-sm-2 label">Type : </label>
                       <div className="col-sm-6 form-group ">
                         <select
+                          name="type"
                           className="form-control"
                           id="exampleFormControlSelect1"
+                          value={this.state.type}
+                          onChange={this.onChange}
                         >
-                          <option selected disabled>
+                          <option defaultValue disabled>
                             Select
                           </option>
-                          <option>Crime</option>
-                          <option>Accident</option>
+                          <option value="Crime">Crime</option>
+                          <option value="Accident">Accident</option>
                         </select>
                       </div>
                     </div>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import { Redirect } from "react-router-dom";
 import mainImg from "./mainImg.svg";
 import mainImg2 from "./mainImg2.svg";
 import * as ROUTES from "../../utils/routes";

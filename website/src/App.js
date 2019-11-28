@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Home from "./components/home/home";
-import * as ROUTES from "./utils/routes";
-import axios from "axios";
-import "./App.css";
 import AddForm from "./components/addForm/add";
 import Dashboard from "./components/dashboard/dashboard";
 import Navbar from "./components/navbar/navbar";
 import Logout from "./components/logout/logout";
+import "./App.css";
 
 class App extends Component {
   state = {

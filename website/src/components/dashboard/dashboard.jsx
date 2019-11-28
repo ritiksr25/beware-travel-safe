@@ -2,7 +2,6 @@ import React, { Component } from "react";
 //import { Link } from "react-router-dom";
 import axios from "axios";
 import * as ROUTES from "../../utils/routes";
-import Navbar from "../navbar/navbar";
 class Dashboard extends Component {
   state = {
     data: ""
