@@ -1,4 +1,5 @@
 import 'package:beware_travel_safe/providers/auth_provider.dart';
+import 'package:beware_travel_safe/providers/google_maps_providers.dart';
 import 'package:beware_travel_safe/routes/intro_screen.dart';
 import 'package:beware_travel_safe/routes/route_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,9 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider.value(
           value: Auth(),
         ),
+        ChangeNotifierProvider.value(
+          value: AppState(),
+        )
       ],
       child: Consumer<Auth>(
         builder: (ctx, auth, _) => MaterialApp(
