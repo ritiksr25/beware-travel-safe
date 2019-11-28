@@ -7,6 +7,7 @@ import "./App.css";
 import AddForm from "./components/addForm/add";
 import Dashboard from "./components/dashboard/dashboard";
 import Navbar from "./components/navbar/navbar";
+import Logout from "./components/logout/logout";
 
 class App extends Component {
   state = {
@@ -26,12 +27,10 @@ class App extends Component {
       <React.Fragment>
         <Navbar user={this.state.loggedIn} />
         <Switch>
-          <Route
-            path="/home"
-            render={() => <Home handleSubmit={this.handleSubmit} />}
-          />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/add" component={AddForm} />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/logout" component={Logout} />
           <Redirect exact from="/" to="/home" />
           <Redirect to="/home" />
         </Switch>
