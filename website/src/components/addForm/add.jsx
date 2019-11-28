@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 class AddForm extends Component {
@@ -41,9 +42,9 @@ class AddForm extends Component {
                   style={{ width: "100%" }}
                 >
                   <li className="nav-item">
-                    <a className="nav-link " href="#">
+                    <Link className="nav-link " to="/dashboard">
                       Dashboard
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link " href="#">
