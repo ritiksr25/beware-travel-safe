@@ -1,6 +1,7 @@
 import 'package:beware_travel_safe/providers/auth_provider.dart';
 import 'package:beware_travel_safe/routes/intro_screen.dart';
 import 'package:beware_travel_safe/routes/profile_screen.dart';
+import 'package:beware_travel_safe/routes/route_setting.dart';
 import 'package:beware_travel_safe/routes/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -166,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SearchScreen()),
+                                  builder: (context) => RouteSetting()),
                             );
                           },
                         ),
