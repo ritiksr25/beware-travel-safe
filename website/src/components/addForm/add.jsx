@@ -1,59 +1,54 @@
 import React, { Component } from "react";
+import * as ROUTE from "../../utils/routes";
 import "./style.css";
+import axios from "axios";
 
 class AddForm extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      x: "",
+      y: "",
+      type: ""
+    };
+    this.onChange = this.onChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit = async e => {
+    e.preventDefault();
+    console.log(this.state);
+    try {
+      const token = localStorage.getItem("token");
+      await axios.post(
+        ROUTE.addData,
+        {
+          latitude: this.state.x,
+          longitude: this.state.y,
+          type: this.state.type
+        },
+        {
+          headers: {
+            "x-auth-token": token
+          }
+        }
+      );
+      window.location = "/dashboard";
+    } catch (ex) {
+      console.log(ex);
+    }
+  };
+
+  onChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
   render() {
     return (
       <React.Fragment>
         <div className="fluid-container">
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container">
-              <a
-                className="navbar-brand tag text-left"
-                style={{
-                  fontWeight: "700",
-                  color: "#7B65E4",
-                  fontSize: "22px"
-                }}
-                href="#"
-              >
-                Travel Safe
-              </a>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <i className="fa fa-bars"></i>
-              </button>
-
-              <div
-                className="collapse navbar-collapse"
-                id="navbarSupportedContent"
-              >
-                <ul
-                  className="navbar-nav mr-auto nav justify-content-end custom_nav"
-                  style={{ width: "100%" }}
-                >
-                  <li className="nav-item">
-                    <a className="nav-link " href="#">
-                      Dashboard
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link " href="#">
-                      Log Out
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
           <div className="main">
             <div className="container pt-5">
               <div
@@ -66,7 +61,7 @@ class AddForm extends Component {
                   </p>
                 </div>
                 <div className="card p-4">
-                  <form>
+                  <form onSubmit={this.handleSubmit}>
                     <label className="label">Co-Ordinates : </label>
 
                     <div className="form-group row mt-2">
@@ -75,9 +70,12 @@ class AddForm extends Component {
                       </label>
                       <div className="col-sm-3">
                         <input
-                          type="email"
+                          type="number"
+                          name="x"
                           className="form-control"
                           placeholder="X"
+                          value={this.state.x}
+                          onChange={this.onChange}
                         />
                       </div>
                       <label className="col-sm-2 col-form-label">
@@ -85,9 +83,12 @@ class AddForm extends Component {
                       </label>
                       <div className="col-sm-3">
                         <input
-                          type="email"
+                          type="number"
+                          name="y"
                           className="form-control"
                           placeholder="Y"
+                          value={this.state.y}
+                          onChange={this.onChange}
                         />
                       </div>
                     </div>
@@ -95,19 +96,22 @@ class AddForm extends Component {
                       <label className="col-sm-2 label">Type : </label>
                       <div className="col-sm-6 form-group ">
                         <select
+                          name="type"
                           className="form-control"
                           id="exampleFormControlSelect1"
+                          value={this.state.type}
+                          onChange={this.onChange}
                         >
-                          <option selected disabled>
+                          <option defaultValue disabled>
                             Select
                           </option>
-                          <option>Crime</option>
-                          <option>Accident</option>
+                          <option value="crime">Crime</option>
+                          <option value="accident">Accident</option>
                         </select>
                       </div>
                     </div>
                     <div className="text-right">
-                      <button type="button" className="btn btn-primary">
+                      <button type="submit" className="btn btn-primary">
                         Submit
                       </button>
                     </div>
