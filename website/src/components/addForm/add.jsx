@@ -18,25 +18,25 @@ class AddForm extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     console.log(this.state);
-    // const latitudes=this.state.x;
-    // try {
-    //   const token = localStorage.getItem("token");
-    //   const response = await axios.post(
-    //     ROUTE.addData,
-    //     {
-    //       headers: {
-    //         "x-auth-token": token,
-    //         "Content-Type": "application/x-www-form-urlencoded"
-    //       }
-    //     },
-    //     {
-    //       "latitude=latitudes&longitude=longitude&type= this.state.type"
-    //     }
-    //   );
-    //   console.log(response);
-    // } catch (ex) {
-    //   console.log(ex);
-    // }
+    try {
+      const token = localStorage.getItem("token");
+      await axios.post(
+        ROUTE.addData,
+        {
+          latitude: this.state.x,
+          longitude: this.state.y,
+          type: this.state.type
+        },
+        {
+          headers: {
+            "x-auth-token": token
+          }
+        }
+      );
+      window.location = "/dashboard";
+    } catch (ex) {
+      console.log(ex);
+    }
   };
 
   onChange(e) {
@@ -105,8 +105,8 @@ class AddForm extends Component {
                           <option defaultValue disabled>
                             Select
                           </option>
-                          <option value="Crime">Crime</option>
-                          <option value="Accident">Accident</option>
+                          <option value="crime">Crime</option>
+                          <option value="accident">Accident</option>
                         </select>
                       </div>
                     </div>
