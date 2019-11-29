@@ -3,7 +3,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.3.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -12,6 +12,23 @@ dependencies:
   cupertino_icons: ^0.1.2
   google_maps_flutter: ^0.5.21+8
   geolocator: ^5.1.5
+  provider: ^3.0.0
+  intl: ^0.15.8
+  http: ^0.12.0+2
+  shared_preferences: ^0.5.3+1
+  flutter_map: any
+  location: ^2.3.5
+  google_maps_webservice: ^0.0.14
+  uuid: ^2.0.1
+  flutter_google_places: ^0.2.3
+  geocoder: ^0.1.2
+  geoflutterfire: any
+  get_it: ^1.0.3+2
+  flutter_spinkit: "^4.0.0"
+  cloud_firestore: any
+  firebase_auth: ^0.8.4+5
+
+
  
 
 dev_dependencies:
@@ -35,6 +52,11 @@ flutter:
     - assets/images/authimage.png
     - assets/images/searchimage.png
     - assets/images/registerimage.png
+    - assets/images/accidentselected.png
+    - assets/images/accidentunselected.png
+    - assets/images/crimeselected.png
+    - assets/images/crimeunselected.png
+    - assets/crimemarker.png
 
   uses-material-design: true
 
