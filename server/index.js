@@ -1,14 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
+const compression = require("compression");
 const { notFound, sendErrors } = require("./config/errorHandler");
 const app = express();
 
 const cors = require("cors");
 require("dotenv").config();
 require("./config/dbconnection");
-require("./config/passport")(passport);
+// require("./config/passport")(passport);
 
 app.set("view engine", "ejs");
+app.use(compression());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors({ exposedHeaders: "x-auth-token" }));
 app.use(
@@ -31,7 +34,7 @@ const User = require("./models/User");
 const Location = require("./models/Location");
 
 //Routes
-app.use("/", require("./routes/render/main"));
+// app.use("/", require("./routes/render/main"));
 app.use("/api/v1", require("./routes/api/v1/index"));
 app.use("/api/v1/users", require("./routes/api/v1/users"));
 app.use("/api/v1/data", require("./routes/api/v1/data"));
