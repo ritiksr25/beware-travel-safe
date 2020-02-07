@@ -17,6 +17,7 @@ module.exports.addData = async (req, res) => {
 };
 
 module.exports.updateData = async (req, res) => {
+    let { latitude, longitude, type } = req.body;
     let data = await Location.findById(req.params.id);
     if (data) {
         data.latitude = latitude;
